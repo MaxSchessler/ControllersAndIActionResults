@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ControllersAndIActionResults.Controllers
 {
@@ -38,8 +39,6 @@ namespace ControllersAndIActionResults.Controllers
             Byte[] bytes = System.IO.File.ReadAllBytes("C:\\New folder\\Test.txt.txt");
             return File(bytes, "application/jpg");
         }
-
-
     }
 }
 
@@ -49,6 +48,6 @@ public class User
     [Required]
     public string Name { get; set; }
     public string Email { get; set; }
+    [JsonIgnore]
     public string Password { get; set; }
-
 }
